@@ -1,5 +1,6 @@
 package com.example.retrofitproject123
 
+import com.example.retrofitproject123.Models.Day.DayForecast
 import com.example.retrofitproject123.Models.WeatherForecast
 import retrofit2.Response
 import retrofit2.http.GET
@@ -14,4 +15,7 @@ interface iWeather {
 
 @GET("/data/2.5/forecast?")
     suspend fun getWeekData(@Query("lat") lat:String,@Query("lon") lon:String,@Query("appid") appid:String ):Response<WeatherForecast>
+
+    @GET("/data/2.5/weather")
+    suspend fun getToday(@Query("lat") lat: String,@Query("lon") lon: String,@Query("appid") appid: String):Response<DayForecast>
 }

@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         CoroutineScope(Dispatchers.IO).launch {
-            val response = api.retrofit.getWeekData(lat.toString(),lon.toString(), apiKey)
+            val response = api.retrofit.getToday(lat.toString(),lon.toString(), apiKey)
             if (response.isSuccessful){
                 findViewById<TextView>(R.id.text).setText(response.body().toString())
 
